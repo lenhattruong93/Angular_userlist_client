@@ -39,6 +39,19 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map"], fun
                     });
                     return def;
                 };
+                UserService.prototype.addNewUser = function (user) {
+                    var self = this;
+                    var def = new Promise(function (resolve, reject) {
+                        var url = "rest/api/users";
+                        self.http.post(url, user) //post
+                            .map(function (respone) { return respone.json(); }) //.map((respone:any)=>{return respone.json();})
+                            .subscribe(function (users) {
+                            resolve(users);
+                        }); // goi fucn co dau ;
+                    });
+                    return def;
+                };
+                ;
                 UserService = __decorate([
                     core_1.Injectable(),
                     __metadata("design:paramtypes", [http_1.Http])

@@ -1,7 +1,7 @@
 <div class="x_panel">
     <div class="x_title">
         <h2>Users List</h2>
-
+        <i class="	glyphicon glyphicon-plus" (click) ='onAddNewUserClicked($event)' ></i>
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
@@ -22,6 +22,7 @@
                     <td>{{user.fistName}}</td>
                     <td>{{user.lastName}}</td>
                     <td>{{user.userName}}</td>
+                    <i (click) ='onUserClicked(user)' class="glyphicon glyphicon-pencil"></i> 
                 </tr>
             </tbody>
         </table>

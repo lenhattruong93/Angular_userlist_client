@@ -10,7 +10,7 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, userService_1, router_1, Users;
+    var core_1, userService_1, router_1, AddNewUser;
     return {
         setters: [
             function (core_1_1) {
@@ -24,30 +24,32 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
             }
         ],
         execute: function () {
-            Users = /** @class */ (function () {
-                function Users(userService, router) {
-                    var self = this;
-                    self.router = router; // code them phan add user de router hoat dong
-                    userService.getUsers().then(function (respone) {
-                        self.users = respone;
-                    });
+            AddNewUser = /** @class */ (function () {
+                function AddNewUser(userService, router) {
+                    this.user = {
+                        fistName: "",
+                        lastName: "",
+                        userName: ""
+                    };
+                    this.userService = userService;
+                    this.router = router;
                 }
-                Users.prototype.onAddNewUserClicked = function () {
-                    this.router.navigate(["addNewUser"]);
+                AddNewUser.prototype.onSaveClicked = function () {
+                    var self = this;
+                    this.userService.addNewUser(this.user).then(function () {
+                        self.router.navigate(["users"]);
+                    });
                 };
-                Users.prototype.onUserClicked = function (user) {
-                    console.log(user);
-                };
-                Users = __decorate([
+                AddNewUser = __decorate([
                     core_1.Component({
-                        templateUrl: "src/pages/users.html"
+                        templateUrl: "src/pages/addNewUser.html"
                     }),
                     __metadata("design:paramtypes", [userService_1.UserService, router_1.Router])
-                ], Users);
-                return Users;
+                ], AddNewUser);
+                return AddNewUser;
             }());
-            exports_1("Users", Users);
+            exports_1("AddNewUser", AddNewUser);
         }
     };
 });
-//# sourceMappingURL=users.js.map
+//# sourceMappingURL=addNewUser.js.map

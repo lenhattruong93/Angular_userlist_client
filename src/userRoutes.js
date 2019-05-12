@@ -1,4 +1,4 @@
-System.register(["@angular/common", "@angular/http", "@angular/core", "@angular/router", "./pages/users", "./_share/service/userService"], function (exports_1, context_1) {
+System.register(["@angular/common", "@angular/http", "@angular/core", "@angular/router", "./pages/users", "./_share/service/userService", "./pages/addNewUser", "@angular/forms"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/common", "@angular/http", "@angular/core", "@angular/
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var common_1, http_1, core_1, router_1, users_1, userService_1, routes, UserRoutes;
+    var common_1, http_1, core_1, router_1, users_1, userService_1, addNewUser_1, forms_1, routes, UserRoutes;
     return {
         setters: [
             function (common_1_1) {
@@ -27,21 +27,28 @@ System.register(["@angular/common", "@angular/http", "@angular/core", "@angular/
             },
             function (userService_1_1) {
                 userService_1 = userService_1_1;
+            },
+            function (addNewUser_1_1) {
+                addNewUser_1 = addNewUser_1_1;
+            },
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             }
         ],
         execute: function () {
             routes = [
                 { path: "users", component: users_1.Users },
-                { path: "", redirectTo: "users", pathMatch: "full" }
+                { path: "", redirectTo: "users", pathMatch: "full" },
+                { path: "addNewUser", component: addNewUser_1.AddNewUser }
             ];
             UserRoutes = /** @class */ (function () {
                 function UserRoutes() {
                 }
                 UserRoutes = __decorate([
                     core_1.NgModule({
-                        imports: [common_1.CommonModule, http_1.HttpModule, router_1.RouterModule.forRoot(routes)],
+                        imports: [common_1.CommonModule, http_1.HttpModule, router_1.RouterModule.forRoot(routes), forms_1.FormsModule],
                         exports: [router_1.RouterModule],
-                        declarations: [users_1.Users],
+                        declarations: [users_1.Users, addNewUser_1.AddNewUser],
                         providers: [userService_1.UserService]
                     })
                 ], UserRoutes);

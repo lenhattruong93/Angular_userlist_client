@@ -20,4 +20,18 @@ export class UserService {
         });
         return def;
     }
+    public addNewUser(user:any):Promise<any>{
+        let self=this;
+        
+        let def: Promise<any> = new Promise<any>((resolve: any, reject: any) => {
+            let url:string="rest/api/users";
+            self.http.post(url,user)//post
+            .map((respone:any)=> respone.json())//.map((respone:any)=>{return respone.json();})
+            .subscribe((users:any)=>{
+                resolve(users);
+            });// goi fucn co dau ;
+        });
+        return def;
+
+    };
 }
