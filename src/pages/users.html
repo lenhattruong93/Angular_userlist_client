@@ -1,0 +1,33 @@
+<div class="x_panel">
+    <div class="x_title">
+      <h2>Users List</h2>
+      <i class="fa fa-plus fa-2x" (click)="onAddNewUser()"></i>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of users">
+            <th scope="row">{{item.userId}}</th>
+            <td>{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.userName}}</td>
+            <td>
+                <i class="fa fa-edit fa-2x" (click)="onEditUserClicked()"></i>
+                <i class="fa fa-trash fa-2x" (click)="onDeleteUserClicked()"></i>
+                <i class="fa fa-search fa-2x" (click)="onViewUserClicked()"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
