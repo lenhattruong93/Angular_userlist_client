@@ -20,10 +20,14 @@ System.register(["@angular/core"], function (exports_1, context_1) {
         execute: function () {
             FormTextInput = /** @class */ (function () {
                 function FormTextInput() {
-                    this.onValueChanged = new core_1.EventEmitter();
+                    // @Output() onValueChanged:EventEmitter<any>=new EventEmitter();
+                    this.modelChange = new core_1.EventEmitter();
                 }
+                // public onChanged():void{
+                //     this.onValueChanged.emit(this.model);
+                // }
                 FormTextInput.prototype.onChanged = function () {
-                    this.onValueChanged.emit(this.model);
+                    this.modelChange.emit(this.model);
                 };
                 __decorate([
                     core_1.Input(),
@@ -36,7 +40,7 @@ System.register(["@angular/core"], function (exports_1, context_1) {
                 __decorate([
                     core_1.Output(),
                     __metadata("design:type", core_1.EventEmitter)
-                ], FormTextInput.prototype, "onValueChanged", void 0);
+                ], FormTextInput.prototype, "modelChange", void 0);
                 FormTextInput = __decorate([
                     core_1.Component({
                         selector: "form-text-input",

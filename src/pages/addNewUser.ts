@@ -25,7 +25,13 @@ export class AddNewUser{
             self.router.navigate(["users"])
         });
     }
-    public onFirstNameChanged(newFirstName:string):void{
-        this.model.firstName=newFirstName;
-    }
+    // public onFirstNameChanged(newFirstName:string):void{
+    //     this.model.firstName=newFirstName;
+    // }
+    // public onLastNameChanged(newLastName:string):void{
+    //     this.model.lastName=newLastName;
+    // }
+    // public onUserNameChanged(newUserName:string):void{
+    //     this.model.userName=newUserName;
+    // }
 }

@@ -43,9 +43,6 @@ System.register(["@angular/core", "../_share/services/userService", "@angular/ro
                         self.router.navigate(["users"]);
                     });
                 };
-                AddNewUser.prototype.onFirstNameChanged = function (newFirstName) {
-                    this.model.firstName = newFirstName;
-                };
                 AddNewUser = __decorate([
                     core_1.Component({
                         templateUrl: "src/pages/addNewUser.html"
