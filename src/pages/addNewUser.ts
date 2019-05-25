@@ -6,9 +6,9 @@ import { Router } from "@angular/router";
 })
 export class AddNewUser{
     public model={
-        firstName:"",
-        lastName:"",
-        userName:"", 
+        firstName:"defaut",
+        lastName:"defaut",
+        userName:"defaut", 
     }
     private userService:UserService;
     private router:Router;
@@ -24,5 +24,8 @@ export class AddNewUser{
         self.userService.addUser(this.model).then(()=>{
             self.router.navigate(["users"])
         });
+    }
+    public onFirstNameChanged(newFirstName:string):void{
+        this.model.firstName=newFirstName;
     }
 }

@@ -27,9 +27,9 @@ System.register(["@angular/core", "../_share/services/userService", "@angular/ro
             AddNewUser = /** @class */ (function () {
                 function AddNewUser(userService, router) {
                     this.model = {
-                        firstName: "",
-                        lastName: "",
-                        userName: "",
+                        firstName: "defaut",
+                        lastName: "defaut",
+                        userName: "defaut",
                     };
                     this.userService = userService;
                     this.router = router;
@@ -42,6 +42,9 @@ System.register(["@angular/core", "../_share/services/userService", "@angular/ro
                     self.userService.addUser(this.model).then(function () {
                         self.router.navigate(["users"]);
                     });
+                };
+                AddNewUser.prototype.onFirstNameChanged = function (newFirstName) {
+                    this.model.firstName = newFirstName;
                 };
                 AddNewUser = __decorate([
                     core_1.Component({

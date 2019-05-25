@@ -1,4 +1,4 @@
-System.register(["@angular/core", "./pages/users", "@angular/router", "./_share/services/userService", "@angular/http", "@angular/common", "./pages/addNewUser", "@angular/forms"], function (exports_1, context_1) {
+System.register(["@angular/core", "./pages/users", "@angular/router", "./_share/services/userService", "@angular/http", "@angular/common", "./pages/addNewUser", "@angular/forms", "./_share/component/form/formTextInput"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -7,7 +7,7 @@ System.register(["@angular/core", "./pages/users", "@angular/router", "./_share/
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, users_1, router_1, userService_1, http_1, common_1, addNewUser_1, forms_1, routes, UserRoutes;
+    var core_1, users_1, router_1, userService_1, http_1, common_1, addNewUser_1, forms_1, formTextInput_1, routes, UserRoutes;
     return {
         setters: [
             function (core_1_1) {
@@ -33,6 +33,9 @@ System.register(["@angular/core", "./pages/users", "@angular/router", "./_share/
             },
             function (forms_1_1) {
                 forms_1 = forms_1_1;
+            },
+            function (formTextInput_1_1) {
+                formTextInput_1 = formTextInput_1_1;
             }
         ],
         execute: function () {
@@ -48,7 +51,13 @@ System.register(["@angular/core", "./pages/users", "@angular/router", "./_share/
                     core_1.NgModule({
                         imports: [http_1.HttpModule, forms_1.FormsModule, common_1.CommonModule, router_1.RouterModule.forRoot(routes)],
                         exports: [router_1.RouterModule],
-                        declarations: [users_1.Users, addNewUser_1.AddNewUser],
+                        declarations: [
+                            formTextInput_1.FormTextInput,
+                            /*
+                            common
+                            */
+                            users_1.Users, addNewUser_1.AddNewUser
+                        ],
                         providers: [userService_1.UserService]
                     })
                 ], UserRoutes);

@@ -6,6 +6,7 @@ import { HttpModule } from "@angular/http";
 import { CommonModule } from "@angular/common";
 import {AddNewUser} from "./pages/addNewUser"
 import { FormsModule } from "@angular/forms";
+import { FormTextInput } from "./_share/component/form/formTextInput";
 let routes: Routes = [
     {path:"users",component:Users},
     {path:"",redirectTo:"users",pathMatch:"full"},
@@ -14,7 +15,12 @@ let routes: Routes = [
 @NgModule({
     imports: [HttpModule,FormsModule,CommonModule,RouterModule.forRoot(routes)],
     exports: [RouterModule],
-    declarations:[Users,AddNewUser],
+    declarations:[
+       FormTextInput,
+        /*
+        common
+        */ 
+        Users,AddNewUser],
     providers:[UserService]
 })
 export class UserRoutes { }
