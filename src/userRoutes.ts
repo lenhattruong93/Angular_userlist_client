@@ -8,6 +8,8 @@ import {AddNewUser} from "./pages/addNewUser"
 import { FormsModule } from "@angular/forms";
 import { FormTextInput } from "./_share/component/form/formTextInput";
 import { FormButtons } from "./_share/component/form/formButtons";
+import { FormHorizontal } from "./_share/component/form/formHorizontal";
+import { Page } from "./_share/component/page";
 let routes: Routes = [
     {path:"users",component:Users},
     {path:"",redirectTo:"users",pathMatch:"full"},
@@ -19,6 +21,8 @@ let routes: Routes = [
     declarations:[
        FormTextInput,
        FormButtons,
+       FormHorizontal,
+       Page,
         /*
         common
         */ 

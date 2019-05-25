@@ -1,33 +1,12 @@
-<div class="x_panel">
-  <div class="x_title">
-    <h2>Add New User</h2>
-    <div class="clearfix"></div>
-  </div>
-  <div class="x_content">
-    <br>
-    <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
-      <!-- <form-text-input [lable]="'First Name'" [model]="model.firstName" (onValueChanged)="onFirstNameChanged($event)"></form-text-input>
-      <form-text-input [lable]="'Last Name'" [model]="model.lastName" (onValueChanged)="onLastNameChanged($event)"></form-text-input>
-      <form-text-input [lable]="'User Name'" [model]="model.userName" (onValueChanged)="onUserNameChanged($event)"></form-text-input>
-    -->
-    <form-text-input [lable]="'First Name'" [(model)]="model.firstName" ></form-text-input>
-      <form-text-input [lable]="'Last Name'" [(model)]="model.lastName" ></form-text-input>
-      <form-text-input [lable]="'User Name'" [(model)]="model.userName" ></form-text-input>
-      <form-buttons>
-          <button type="button" class="btn btn-primary" (click)="onCancelClicked()">Cancel</button>
-          <button type="button" class="btn btn-success" (click)="onSaveClicked()">Save</button>
-      </form-buttons>
-      <!-- 
-       <div class="ln_solid">
-       </div>
-      <div class="form-group">
-        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-          <button type="button" class="btn btn-primary" (click)="onCancelClicked()">Cancel</button>
-          <button type="button" class="btn btn-success" (click)="onSaveClicked()">Save</button>
-        </div>
-        </div>
-     -->
 
-    </form>
-  </div>
-</div>
+<page [title]="'sdfgsfgjkl'">
+  <form-horizontal>
+    <form-text-input [lable]="'First Name'" [(model)]="model.firstName"></form-text-input>
+    <form-text-input [lable]="'Last Name'" [(model)]="model.lastName"></form-text-input>
+    <form-text-input [lable]="'User Name'" [(model)]="model.userName"></form-text-input>
+    <form-buttons>
+      <button type="button" class="btn btn-primary" (click)="onCancelClicked()">Cancel</button>
+      <button type="button" class="btn btn-success" (click)="onSaveClicked()">Save</button>
+    </form-buttons>
+  </form-horizontal>
+</page>
