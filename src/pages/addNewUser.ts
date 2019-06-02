@@ -20,7 +20,6 @@ export class AddNewUser {
     public onSaveClicked(): void {
         let self = this;
         this.userService.addNewUser(this.user).then(() => {
-            self.router.navigate(["users"]);
-        });
+            self.router.navigate(["users"]);});
     }
 }

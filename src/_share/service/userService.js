@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "../models/promise"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map"], fun
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, http_1, UserService;
+    var core_1, http_1, promise_1, UserService;
     return {
         setters: [
             function (core_1_1) {
@@ -20,6 +20,9 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map"], fun
                 http_1 = http_1_1;
             },
             function (_1) {
+            },
+            function (promise_1_1) {
+                promise_1 = promise_1_1;
             }
         ],
         execute: function () {
@@ -28,28 +31,43 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map"], fun
                     this.http = http;
                 }
                 UserService.prototype.getUsers = function () {
-                    var self = this;
-                    var def = new Promise(function (resolve, reject) {
-                        var url = "rest/api/users";
-                        self.http.get(url)
-                            .map(function (respone) { return respone.json(); }) //.map((respone:any)=>{return respone.json();})
-                            .subscribe(function (users) {
-                            resolve(users);
-                        }); // goi fucn co dau ;
-                    });
+                    // let self = this;
+                    var def = new promise_1.Promise();
+                    def.resolve([{ id: 14, fistName: "rtetwt", lastName: "wertwertw", userName: "wertwer" },
+                        { id: 15, fistName: "rtetwt", lastName: "wertwertw", userName: "wertwer" },
+                        { id: 16, fistName: "sdfsedf", lastName: "dsfgh", userName: "sdfgdfg" },
+                        { id: 17, fistName: "vbchbd", lastName: "dfgdfg", userName: "dfgdfg" },
+                        { id: 18, fistName: "sdfgsdf", lastName: "sdfsdf", userName: "sdfsdf" },
+                        { id: 19, fistName: "natdfssddu", lastName: "lsdssdffsdfe", userName: "nasdsdsdffftu.le" },
+                        { id: 20, fistName: "natdfssddu", lastName: "lsdssdffsdfe", userName: "nasdsdsdffftu.le" },
+                        { id: 21, fistName: "ds", lastName: "asd", userName: "asd" },
+                        { id: 22, fistName: "", lastName: "", userName: "" },
+                        { id: 23, fistName: "ccccccccc", lastName: "vvvvvvvvvvvvv", userName: "bbbbbbbbbbb" },
+                        { id: 24, fistName: "2452345235", lastName: "7687687", userName: "6778678968" },
+                        { id: 25, fistName: "11111111111111111", lastName: "777777777", userName: "22222222" }]);
+                    // let url: string = "rest/api/users";
+                    // self.http.get(url)
+                    //     .map((respone: any) => respone.json())
+                    //     .subscribe(users => def.resolve(users));
                     return def;
                 };
                 UserService.prototype.addNewUser = function (user) {
                     var self = this;
-                    var def = new Promise(function (resolve, reject) {
-                        var url = "rest/api/users";
-                        self.http.post(url, user) //post
-                            .map(function (respone) { return respone.json(); }) //.map((respone:any)=>{return respone.json();})
-                            .subscribe(function (users) {
-                            resolve(users);
-                        }); // goi fucn co dau ;
-                    });
+                    var def = new promise_1.Promise();
+                    var url = "rest/api/users";
+                    self.http.post(url, user)
+                        .map(function (respone) { return respone.json(); })
+                        .subscribe(function (users) { return def.resolve(users); });
                     return def;
+                    // let def: Promise<any> = new Promise<any>((resolve: any, reject: any) => {
+                    //     let url:string="rest/api/users";
+                    //     self.http.post(url,user)//post
+                    //     .map((respone:any)=> respone.json())//.map((respone:any)=>{return respone.json();})
+                    //      .subscribe((users:any)=>{
+                    //          resolve(users);
+                    //      });// goi fucn co dau ;
+                    // });
+                    //  return def;
                 };
                 ;
                 UserService = __decorate([

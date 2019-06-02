@@ -26,15 +26,25 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
         execute: function () {
             Users = /** @class */ (function () {
                 function Users(userService, router) {
+                    this.userService = userService;
                     var self = this;
                     self.router = router; // code them phan add user de router hoat dong
-                    userService.getUsers().then(function (respone) {
-                        self.users = respone;
-                    });
+                    self.reload();
+                    // userService.getUsers().then((respone:any)=>{
+                    //   self.users=respone;
+                    // }); 
                 }
                 Users.prototype.onAddNewUserClicked = function () {
                     this.router.navigate(["addNewUser"]);
                 };
+                Users.prototype.reload = function () {
+                    var self = this;
+                    self.userService.getUsers().then(function (item) {
+                        console.log(item);
+                        self.users = item;
+                    });
+                };
+                ;
                 Users.prototype.onUserClicked = function (user) {
                     console.log(user);
                 };
