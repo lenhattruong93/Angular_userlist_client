@@ -1,4 +1,4 @@
-System.register(["@angular/core", "../_share/service/userService", "@angular/router"], function (exports_1, context_1) {
+System.register(["@angular/core", "../_share/service/userService", "@angular/router", "../_share/enum"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, userService_1, router_1, Users;
+    var core_1, userService_1, router_1, enum_1, Users;
     return {
         setters: [
             function (core_1_1) {
@@ -21,6 +21,9 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (enum_1_1) {
+                enum_1 = enum_1_1;
             }
         ],
         execute: function () {
@@ -39,9 +42,15 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
                 };
                 Users.prototype.reload = function () {
                     var self = this;
-                    self.userService.getUsers().then(function (item) {
-                        console.log(item);
+                    var cache = window.ioc.resolve(enum_1.IoCNames.ICachManager);
+                    if (cache.exist("localusers")) {
+                        self.users = cache.get("localusers");
+                    }
+                    var userService = window.ioc.resolve(enum_1.IoCNames.IUserService);
+                    userService.getUsers()
+                        .then(function (item) {
                         self.users = item;
+                        cache.add("localusers", item);
                     });
                 };
                 ;

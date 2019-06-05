@@ -31,24 +31,26 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "../
                     this.http = http;
                 }
                 UserService.prototype.getUsers = function () {
-                    // let self = this;
+                    var self = this;
                     var def = new promise_1.Promise();
-                    def.resolve([{ id: 14, fistName: "rtetwt", lastName: "wertwertw", userName: "wertwer" },
-                        { id: 15, fistName: "rtetwt", lastName: "wertwertw", userName: "wertwer" },
-                        { id: 16, fistName: "sdfsedf", lastName: "dsfgh", userName: "sdfgdfg" },
-                        { id: 17, fistName: "vbchbd", lastName: "dfgdfg", userName: "dfgdfg" },
-                        { id: 18, fistName: "sdfgsdf", lastName: "sdfsdf", userName: "sdfsdf" },
-                        { id: 19, fistName: "natdfssddu", lastName: "lsdssdffsdfe", userName: "nasdsdsdffftu.le" },
-                        { id: 20, fistName: "natdfssddu", lastName: "lsdssdffsdfe", userName: "nasdsdsdffftu.le" },
-                        { id: 21, fistName: "ds", lastName: "asd", userName: "asd" },
-                        { id: 22, fistName: "", lastName: "", userName: "" },
-                        { id: 23, fistName: "ccccccccc", lastName: "vvvvvvvvvvvvv", userName: "bbbbbbbbbbb" },
-                        { id: 24, fistName: "2452345235", lastName: "7687687", userName: "6778678968" },
-                        { id: 25, fistName: "11111111111111111", lastName: "777777777", userName: "22222222" }]);
-                    // let url: string = "rest/api/users";
-                    // self.http.get(url)
-                    //     .map((respone: any) => respone.json())
-                    //     .subscribe(users => def.resolve(users));
+                    // def.resolve(
+                    //     [{ id: 14, fistName: "rtetwt", lastName: "wertwertw", userName: "wertwer" },
+                    //     { id: 15, fistName: "rtetwt", lastName: "wertwertw", userName: "wertwer" },
+                    //     { id: 16, fistName: "sdfsedf", lastName: "dsfgh", userName: "sdfgdfg" },
+                    //     { id: 17, fistName: "vbchbd", lastName: "dfgdfg", userName: "dfgdfg" },
+                    //     { id: 18, fistName: "sdfgsdf", lastName: "sdfsdf", userName: "sdfsdf" },
+                    //     { id: 19, fistName: "natdfssddu", lastName: "lsdssdffsdfe", userName: "nasdsdsdffftu.le" },
+                    //     { id: 20, fistName: "natdfssddu", lastName: "lsdssdffsdfe", userName: "nasdsdsdffftu.le" },
+                    //     { id: 21, fistName: "ds", lastName: "asd", userName: "asd" },
+                    //     { id: 22, fistName: "", lastName: "", userName: "" },
+                    //     { id: 23, fistName: "ccccccccc", lastName: "vvvvvvvvvvvvv", userName: "bbbbbbbbbbb" },
+                    //     { id: 24, fistName: "2452345235", lastName: "7687687", userName: "6778678968" },
+                    //     { id: 25, fistName: "11111111111111111", lastName: "777777777", userName: "22222222" }]
+                    // );
+                    var url = "rest/api/users";
+                    self.http.get(url)
+                        .map(function (respone) { return respone.json(); })
+                        .subscribe(function (users) { return def.resolve(users); });
                     return def;
                 };
                 UserService.prototype.addNewUser = function (user) {
