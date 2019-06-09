@@ -27,7 +27,7 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
             AddNewUser = /** @class */ (function () {
                 function AddNewUser(userService, router) {
                     this.user = {
-                        fistName: "",
+                        firstName: "",
                         lastName: "",
                         userName: ""
                     };

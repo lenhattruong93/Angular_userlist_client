@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
 export class AddNewUser {
     private router: Router;// khai bao de su dung router
     private user: any = {
-        fistName: "",
+        firstName: "",
         lastName: "",
         userName: ""
     };
