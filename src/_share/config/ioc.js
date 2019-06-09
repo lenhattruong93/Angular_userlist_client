@@ -1,7 +1,7 @@
-System.register(["../service/userService", "../enum", "../service/localStrogeCachManager"], function (exports_1, context_1) {
+System.register(["../service/userService", "../enum", "../service/memoryStrogeCachManager"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var userService_1, enum_1, localStrogeCachManager_1, ioc;
+    var userService_1, enum_1, memoryStrogeCachManager_1, ioc;
     return {
         setters: [
             function (userService_1_1) {
@@ -10,14 +10,14 @@ System.register(["../service/userService", "../enum", "../service/localStrogeCac
             function (enum_1_1) {
                 enum_1 = enum_1_1;
             },
-            function (localStrogeCachManager_1_1) {
-                localStrogeCachManager_1 = localStrogeCachManager_1_1;
+            function (memoryStrogeCachManager_1_1) {
+                memoryStrogeCachManager_1 = memoryStrogeCachManager_1_1;
             }
         ],
         execute: function () {
             ioc = [
                 { name: enum_1.IoCNames.IUserService, instanceOf: userService_1.UserService },
-                { name: enum_1.IoCNames.ICachManager, instanceOf: localStrogeCachManager_1.LocalStrogeCachManager }
+                { name: enum_1.IoCNames.ICachManager, instanceOf: memoryStrogeCachManager_1.MemoryStrogeCachManager }
             ];
             exports_1("default", ioc);
         }

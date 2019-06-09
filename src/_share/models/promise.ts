@@ -3,7 +3,6 @@ enum PromiseStatus{
     Success=1,
 }
 export class Promise {
-
     private successCallback: any;
     private status: PromiseStatus=PromiseStatus.None;
     private data: any;

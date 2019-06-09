@@ -28,8 +28,9 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
         ],
         execute: function () {
             Users = /** @class */ (function () {
+                // public userService: UserService; //Code them cho phan adduser
                 function Users(userService, router) {
-                    this.userService = userService;
+                    //  this.userService = userService;
                     var self = this;
                     self.router = router; // code them phan add user de router hoat dong
                     self.reload();
@@ -52,6 +53,8 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
                         self.users = item;
                         cache.add("localusers", item);
                     });
+                    var cach1 = window.ioc.resolve(enum_1.IoCNames.ICachManager);
+                    console.log(cach1.get("localusers"));
                 };
                 ;
                 Users.prototype.onUserClicked = function (user) {

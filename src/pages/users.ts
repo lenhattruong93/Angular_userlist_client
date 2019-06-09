@@ -11,9 +11,9 @@ import { ICacheManager } from "../_share/service/icacheManager";
 export class Users {
     public users: Array<any>;
     public router: Router;
-    public userService: UserService; //Code them cho phan adduser
+    // public userService: UserService; //Code them cho phan adduser
     constructor(userService: UserService, router: Router) {
-        this.userService = userService;
+        //  this.userService = userService;
         let self = this;
         self.router = router;// code them phan add user de router hoat dong
         self.reload()
@@ -27,15 +27,17 @@ export class Users {
     private reload() {
         let self = this;
         let cache: ICacheManager = window.ioc.resolve(IoCNames.ICachManager);
-        if(cache.exist("localusers")){
-            self.users=cache.get("localusers");
+        if (cache.exist("localusers")) {
+            self.users = cache.get("localusers");
         }
         let userService: IUserService = window.ioc.resolve(IoCNames.IUserService);
         userService.getUsers()
             .then((item: Array<any>) => {
                 self.users = item;
-                cache.add("localusers",item)
-            })
+                cache.add("localusers", item)
+            });
+        let cach1: ICacheManager = window.ioc.resolve(IoCNames.ICachManager);
+        console.log(cach1.get("localusers"));
     };
     public onUserClicked(user: any) {
         console.log(user);

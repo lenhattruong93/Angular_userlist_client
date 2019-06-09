@@ -12,10 +12,12 @@ System.register([], function (exports_1, context_1) {
                 IoCContainer.prototype.resolve = function (name) {
                     var instance;
                     this.registrations.forEach(function (item) {
-                        if (item.name != name) {
-                            return;
+                        {
+                            if (item.name != name) {
+                                return;
+                            }
+                            instance = new item.instanceOf();
                         }
-                        instance = new item.instanceOf();
                     });
                     return instance;
                     // if (name == "IUserService") {
