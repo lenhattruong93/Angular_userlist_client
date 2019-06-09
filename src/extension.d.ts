@@ -4,4 +4,5 @@ interface Window{
 interface IIocRegistration{
     name:string;
     instanceOf:any;
+    lifecycle:any
 }

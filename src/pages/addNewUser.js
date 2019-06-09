@@ -40,6 +40,10 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
                         self.router.navigate(["users"]);
                     });
                 };
+                AddNewUser.prototype.onCancleClicked = function () {
+                    var self = this;
+                    self.router.navigate(["users"]);
+                };
                 AddNewUser = __decorate([
                     core_1.Component({
                         templateUrl: "src/pages/addNewUser.html"

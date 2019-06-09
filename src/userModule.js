@@ -6,6 +6,9 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
+    var __metadata = (this && this.__metadata) || function (k, v) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+    };
     var __moduleName = context_1 && context_1.id;
     var core_1, platform_browser_1, forms_1, userRoutes_1, layout_1, UserModule;
     return {
@@ -28,7 +31,8 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
         ],
         execute: function () {
             UserModule = /** @class */ (function () {
-                function UserModule() {
+                function UserModule(injector) {
+                    window.ioc.setInjector(injector);
                 }
                 UserModule = __decorate([
                     core_1.NgModule({
@@ -39,7 +43,8 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
                         ],
                         declarations: [layout_1.Layout],
                         bootstrap: [layout_1.Layout]
-                    })
+                    }),
+                    __metadata("design:paramtypes", [core_1.Injector])
                 ], UserModule);
                 return UserModule;
             }());

@@ -13,13 +13,18 @@ export class AddNewUser {
         userName: ""
     };
     private userService: UserService;
-    constructor(userService: UserService,router : Router) {
+    constructor(userService: UserService, router: Router) {
         this.userService = userService;
-        this.router= router;
+        this.router = router;
     }
     public onSaveClicked(): void {
         let self = this;
         this.userService.addNewUser(this.user).then(() => {
-            self.router.navigate(["users"]);});
+            self.router.navigate(["users"]);
+        });
+    }
+    public onCancleClicked():void{
+        let self=this;
+        self.router.navigate(["users"])
     }
 }

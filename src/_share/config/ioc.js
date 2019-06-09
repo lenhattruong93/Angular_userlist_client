@@ -16,8 +16,8 @@ System.register(["../service/userService", "../enum", "../service/memoryStrogeCa
         ],
         execute: function () {
             ioc = [
-                { name: enum_1.IoCNames.IUserService, instanceOf: userService_1.UserService },
-                { name: enum_1.IoCNames.ICachManager, instanceOf: memoryStrogeCachManager_1.MemoryStrogeCachManager }
+                { name: enum_1.IoCNames.IUserService, instanceOf: userService_1.UserService, lifecycle: enum_1.IoCLifeCycle.Transient },
+                { name: enum_1.IoCNames.ICachManager, instanceOf: memoryStrogeCachManager_1.MemoryStrogeCachManager, lifecycle: enum_1.IoCLifeCycle.Singleton }
             ];
             exports_1("default", ioc);
         }
