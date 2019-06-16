@@ -1,5 +1,15 @@
-System.register(["@angular/core", "../_share/service/userService", "@angular/router", "../_share/enum"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/router", "../_share/enum", "../_share/common/basePage"], function (exports_1, context_1) {
     "use strict";
+    var __extends = (this && this.__extends) || (function () {
+        var extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return function (d, b) {
+            extendStatics(d, b);
+            function __() { this.constructor = d; }
+            d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+        };
+    })();
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -10,33 +20,34 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, userService_1, router_1, enum_1, AddNewUser;
+    var core_1, router_1, enum_1, basePage_1, AddNewUser;
     return {
         setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (userService_1_1) {
-                userService_1 = userService_1_1;
             },
             function (router_1_1) {
                 router_1 = router_1_1;
             },
             function (enum_1_1) {
                 enum_1 = enum_1_1;
+            },
+            function (basePage_1_1) {
+                basePage_1 = basePage_1_1;
             }
         ],
         execute: function () {
-            AddNewUser = /** @class */ (function () {
-                // private userService: UserService;
-                function AddNewUser(userService, router) {
-                    this.user = {
+            AddNewUser = /** @class */ (function (_super) {
+                __extends(AddNewUser, _super);
+                function AddNewUser(router) {
+                    var _this = _super.call(this) || this;
+                    _this.user = {
                         firstName: "",
                         lastName: "",
                         userName: ""
                     };
-                    // this.userService = userService;
-                    this.router = router;
+                    _this.router = router;
+                    return _this;
                 }
                 AddNewUser.prototype.onSaveClicked = function () {
                     var self = this;
@@ -53,10 +64,10 @@ System.register(["@angular/core", "../_share/service/userService", "@angular/rou
                     core_1.Component({
                         templateUrl: "src/pages/addNewUser.html"
                     }),
-                    __metadata("design:paramtypes", [userService_1.UserService, router_1.Router])
+                    __metadata("design:paramtypes", [router_1.Router])
                 ], AddNewUser);
                 return AddNewUser;
-            }());
+            }(basePage_1.BasePage));
             exports_1("AddNewUser", AddNewUser);
         }
     };

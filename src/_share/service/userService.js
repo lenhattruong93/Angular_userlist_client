@@ -33,20 +33,6 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "../
                 UserService.prototype.getUsers = function () {
                     var self = this;
                     var def = new promise_1.Promise();
-                    // def.resolve(
-                    //     [{ id: 14, fistName: "rtetwt", lastName: "wertwertw", userName: "wertwer" },
-                    //     { id: 15, fistName: "rtetwt", lastName: "wertwertw", userName: "wertwer" },
-                    //     { id: 16, fistName: "sdfsedf", lastName: "dsfgh", userName: "sdfgdfg" },
-                    //     { id: 17, fistName: "vbchbd", lastName: "dfgdfg", userName: "dfgdfg" },
-                    //     { id: 18, fistName: "sdfgsdf", lastName: "sdfsdf", userName: "sdfsdf" },
-                    //     { id: 19, fistName: "natdfssddu", lastName: "lsdssdffsdfe", userName: "nasdsdsdffftu.le" },
-                    //     { id: 20, fistName: "natdfssddu", lastName: "lsdssdffsdfe", userName: "nasdsdsdffftu.le" },
-                    //     { id: 21, fistName: "ds", lastName: "asd", userName: "asd" },
-                    //     { id: 22, fistName: "", lastName: "", userName: "" },
-                    //     { id: 23, fistName: "ccccccccc", lastName: "vvvvvvvvvvvvv", userName: "bbbbbbbbbbb" },
-                    //     { id: 24, fistName: "2452345235", lastName: "7687687", userName: "6778678968" },
-                    //     { id: 25, fistName: "11111111111111111", lastName: "777777777", userName: "22222222" }]
-                    // );
                     var url = "rest/api/users";
                     var http = window.ioc.resolve(http_1.Http);
                     http.get(url)
@@ -63,15 +49,6 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "../
                         .map(function (respone) { return respone.json(); })
                         .subscribe(function (users) { return def.resolve(users); });
                     return def;
-                    // let def: Promise<any> = new Promise<any>((resolve: any, reject: any) => {
-                    //     let url:string="rest/api/users";
-                    //     self.http.post(url,user)//post
-                    //     .map((respone:any)=> respone.json())//.map((respone:any)=>{return respone.json();})
-                    //      .subscribe((users:any)=>{
-                    //          resolve(users);
-                    //      });// goi fucn co dau ;
-                    // });
-                    //  return def;
                 };
                 ;
                 UserService = __decorate([

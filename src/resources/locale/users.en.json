@@ -1,0 +1,19 @@
+{
+    "pages":{
+        "users":{
+            "pageTitle":"Users",
+            "firstName":"First name",
+            "LastName":"Last name",
+            "userName":"User name",
+            "actions":"Action"
+        },
+        "addUser":{
+            "pageTitle":"Them moi nguoi dung",
+            "firstName":"Ten",
+            "LastName":"Ho",
+            "userName":"Ten dang nhap",
+            "cancel":"Bo qua",
+            "save":"Luu"
+        }
+    }
+}

@@ -7,7 +7,8 @@ System.register([], function (exports_1, context_1) {
         execute: function () {
             exports_1("IoCNames", IoCNames = {
                 IUserService: "IUserService",
-                ICachManager: "ICachManager"
+                ICachManager: "ICachManager",
+                IResourceManager: "IResourceManager"
             });
             (function (IoCLifeCycle) {
                 IoCLifeCycle[IoCLifeCycle["Transient"] = 1] = "Transient";

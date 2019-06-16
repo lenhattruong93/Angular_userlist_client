@@ -1,4 +1,4 @@
-System.register(["@angular/core", "@angular/platform-browser", "@angular/forms", "./userRoutes", "./layout"], function (exports_1, context_1) {
+System.register(["@angular/core", "@angular/platform-browser", "@angular/forms", "./userRoutes", "./layout", "./_share/enum"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,7 +10,7 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, platform_browser_1, forms_1, userRoutes_1, layout_1, UserModule;
+    var core_1, platform_browser_1, forms_1, userRoutes_1, layout_1, enum_1, UserModule;
     return {
         setters: [
             function (core_1_1) {
@@ -27,13 +27,25 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
             },
             function (layout_1_1) {
                 layout_1 = layout_1_1;
+            },
+            function (enum_1_1) {
+                enum_1 = enum_1_1;
             }
         ],
         execute: function () {
             UserModule = /** @class */ (function () {
-                function UserModule(injector) {
+                function UserModule(injector, appRef) {
+                    this.appRef = appRef;
                     window.ioc.setInjector(injector);
                 }
+                UserModule.prototype.ngDoBootstrap = function () {
+                    var self = this;
+                    var resource = window.ioc.resolve(enum_1.IoCNames.IResourceManager);
+                    resource.loadLocale("users").then(function (json) {
+                        resource.import(json);
+                        self.appRef.bootstrap(layout_1.Layout); /// Se hoi lai luc offline
+                    });
+                };
                 UserModule = __decorate([
                     core_1.NgModule({
                         imports: [
@@ -42,9 +54,10 @@ System.register(["@angular/core", "@angular/platform-browser", "@angular/forms",
                             userRoutes_1.UserRoutes
                         ],
                         declarations: [layout_1.Layout],
-                        bootstrap: [layout_1.Layout]
+                        entryComponents: [layout_1.Layout]
+                        // bootstrap: [Layout]
                     }),
-                    __metadata("design:paramtypes", [core_1.Injector])
+                    __metadata("design:paramtypes", [core_1.Injector, core_1.ApplicationRef])
                 ], UserModule);
                 return UserModule;
             }());

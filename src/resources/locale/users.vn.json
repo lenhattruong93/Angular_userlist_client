@@ -1,0 +1,19 @@
+{
+    "pages":{
+        "users":{
+            "pageTitle":"Danh sach nguoi dung",
+            "firstName":"Ten",
+            "LastName":"Ho",
+            "userName":"Ten dang nhap",
+            "actions":"Action"
+        },
+        "addUser":{
+            "pageTitle":"Them moi nguoi dung",
+            "firstName":"Ten",
+            "LastName":"Ho",
+            "userName":"Ten dang nhap",
+            "cancel":"Bo qua",
+            "save":"Luu"
+        }
+    }
+}

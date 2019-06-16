@@ -2,6 +2,8 @@
     <div class="x_title">
         <h2>Users List</h2>
         <i class="	glyphicon glyphicon-plus" (click) ='onAddNewUserClicked($event)' ></i>
+        <button (click)='onENClicked()'>EN</button>
+        <button (click)='onVNClicked()'>VN</button>
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
@@ -10,10 +12,10 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
-                    <th>Action</th>
+                    <th>{{i18n.pages.users.firstName}}</th>
+                    <th>{{i18n.pages.users.lastName}}</th>
+                    <th>{{i18n.pages.users.userName}}</th>
+                    <th>{{i18n.pages.users.actions}}</th>
                 </tr>
             </thead>
             <tbody>

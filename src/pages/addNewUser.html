@@ -9,21 +9,21 @@
     <form class="form-horizontal form-label-left ng-untouched ng-pristine ng-valid" data-parsley-validate="" id="demo-form2" novalidate="">
 
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">{{i18n.pages.addUser.firstName}}<span class="required">*</span>
         </label>
         <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="text" [(ngModel)] ="user.firstName" name="fist-name" required="required" class="form-control col-md-7 col-xs-12">                     
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">{{i18n.pages.addUser.lastName}}<span class="required">*</span>
         </label>
         <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="text" [(ngModel)] ="user.lastName" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="middle-name">User Name</label>
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="middle-name">{{i18n.pages.addUser.userName}}</label>
         <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="text" [(ngModel)] ="user.userName" name="user-name" required="required" class="form-control col-md-7 col-xs-12">
         </div>

@@ -4,22 +4,27 @@ import { Router } from "@angular/router";
 import { IUserService } from "../_share/service/iUserService";
 import { IoCNames } from "../_share/enum"
 import { ICacheManager } from "../_share/service/icacheManager";
-
+import { BasePage } from "../_share/common/basePage";
+import { IResourceManager } from "../_share/service/iresourceManager";
 @Component({
     templateUrl: "src/pages/users.html"
 })
-export class Users {
+export class Users extends BasePage { 
     public users: Array<any>;
     public router: Router;
-    // public userService: UserService; //Code them cho phan adduser
-    constructor(userService: UserService, router: Router) {
-        //  this.userService = userService;
+    constructor(router: Router) {
+        super()
         let self = this;
-        self.router = router;// code them phan add user de router hoat dong
+        self.router = router;
         self.reload()
-        // userService.getUsers().then((respone:any)=>{
-        //   self.users=respone;
-        // }); 
+    }
+    public onENClicked():void{
+        let resource:IResourceManager= window.ioc.resolve(IoCNames.IResourceManager);
+        resource.reload("en");
+    }
+    public onVNClicked():void{
+        let resource:IResourceManager= window.ioc.resolve(IoCNames.IResourceManager);
+        resource.reload("vn");
     }
     public onAddNewUserClicked(): void {
         this.router.navigate(["addNewUser"]);
@@ -41,6 +46,5 @@ export class Users {
     };
     public onUserClicked(user: any) {
         console.log(user);
-
     }
 }

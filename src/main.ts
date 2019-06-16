@@ -4,3 +4,4 @@ import { UserModule } from "./userModule";
 import {IoCContainerFactory} from "./_share/common/ioc/iocContainerFactory"
 window.ioc = IoCContainerFactory.create();
 platformBrowserDynamic().bootstrapModule(UserModule);
+
