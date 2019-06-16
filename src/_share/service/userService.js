@@ -58,7 +58,8 @@ System.register(["@angular/core", "@angular/http", "rxjs/add/operator/map", "../
                     var self = this;
                     var def = new promise_1.Promise();
                     var url = "rest/api/users";
-                    self.http.post(url, user)
+                    var http = window.ioc.resolve(http_1.Http);
+                    http.post(url, user)
                         .map(function (respone) { return respone.json(); })
                         .subscribe(function (users) { return def.resolve(users); });
                     return def;

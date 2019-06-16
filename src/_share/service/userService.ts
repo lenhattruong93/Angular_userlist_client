@@ -36,7 +36,8 @@ export class UserService {
         let self = this;
         let def: Promise = new Promise();
         let url: string = "rest/api/users";
-        self.http.post(url, user)
+        let http: Http = window.ioc.resolve(Http);
+        http.post(url, user)
             .map(respone => respone.json())
             .subscribe(users => def.resolve(users))
         return def;

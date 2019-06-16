@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { UserService } from "../_share/service/userService";
 import { Router } from "@angular/router";
+import { IUserService } from "../_share/service/iUserService";
+import { IoCNames } from "../_share/enum";
 
 @Component({
     templateUrl: "src/pages/addNewUser.html"
@@ -12,14 +14,15 @@ export class AddNewUser {
         lastName: "",
         userName: ""
     };
-    private userService: UserService;
+   // private userService: UserService;
     constructor(userService: UserService, router: Router) {
-        this.userService = userService;
+       // this.userService = userService;
         this.router = router;
     }
     public onSaveClicked(): void {
-        let self = this;
-        this.userService.addNewUser(this.user).then(() => {
+       let self = this;
+        let userService: IUserService = window.ioc.resolve(IoCNames.IUserService);
+        userService.addNewUser(this.user).then(() => {
             self.router.navigate(["users"]);
         });
     }
